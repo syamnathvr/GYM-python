@@ -1,0 +1,43 @@
+{% load static %}
+{% include 'header3.html' %}
+
+
+<div class="container-xl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <h1 class="m-0 display-4 font-weight-bold text-uppercase text-black">Available Class</h1>
+    
+        
+<table class="table">
+    <form action="userenrollclass" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Batch</th>
+        <th scope="col">Time</th>
+        <th scope="col">Date</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in result %}
+        <tr>
+          <td>{{i.id}}</th>
+          <td>{{i.staffnames}}</td>
+          <td>{{i.staffspecs}}</td>
+          <td>{{i.classtime}}</td>
+          <td>{{i.classdate}}</td>
+         
+        </tr>
+        {% endfor %}
+    </tbody>
+</form>
+  </table>
+
+</div>
+</div>
+</div>  
+
+{% include 'footer.html' %}

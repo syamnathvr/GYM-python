@@ -1,0 +1,59 @@
+{% load static %}
+{% include 'header3.html' %}
+{% block content %}
+
+
+<section class="bg-primary py-3 py-md-5 py-xl-8" style="background-image: url(static/img/carousel-01.jpg); height: 660px;">
+    <div class="container">
+        <br><br>
+      <div class="row gy-4 align-items-center justify-content-center">
+        <div class="col-12 col-md-6 col-xl-5">
+          <div class="card border-0 rounded-4">
+            <div class="card-body p-3 p-md-4 p-xl-5">
+              <div class="row">
+                <div class="col-12">
+                  <div class="mb-4">
+                    <h2>Book Equipment</h2><br>
+                  </div>
+                </div>
+              </div>
+              <form action="userequipbook" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row gy-3 overflow-hidden">
+                    <div class="col-12 mb-3">
+
+                        <select class="form-control" aria-label="Default select example" name="eqnames" style="height: 55px;" >
+                          <option selected disabled>Choose Equipment</option>
+                          {% for i in result %}
+                          <option value="{{i.eqname}}">{{i.eqname}}</option>
+                          {% endfor %}
+                          </select>
+                        </div>
+                        <div class="col-12 mb-3">
+
+                            <select class="form-control" aria-label="Default select example" style="height: 55px;" name="classtime" >
+                              <option selected disabled>Select Timing</option>
+                              <option value="6.00am - 8.00am">6.00am - 8.00am</option>
+                              <option value="8.00am - 10.00am">8.00am - 10.00am</option>
+                              <option value="5.00pm - 7.00pm">5.00pm - 7.00pm</option>
+                              <option value="7.00pm - 9.00pm">7.00pm - 9.00pm</option>
+                            </select></div>
+                            
+                  <div class="col-12">
+                    <div class="d-grid">
+                      <button class="btn btn-primary btn-lg" style="background-color: rgb(153, 26, 26); border-radius: 5px;  width: 160px;" type="submit">Book now</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %}
+{% include 'footer.html' %}

@@ -1,0 +1,99 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Gymnast - Gym Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="{% static 'lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
+</head>
+
+<body class="bg-white">
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3" style="background-color: black;">
+            <a href="" class="navbar-brand">
+                <h1 class="m-0 display-4 font-weight-bold text-uppercase text-white">Gymnast</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto p-4 bg-secondary">
+                    {% if request.session.admin %}
+                    <a href="adminbase" class="nav-item nav-link">Home</a>
+                    <a href="adminuserlist" class="nav-item nav-link">Members</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Staffs</a>
+                        <div class="dropdown-menu text-capitalize">
+                            <a href="addstaff" class="dropdown-item">Add Staff</a>
+                            <a href="adminstaffview" class="dropdown-item">View Staff</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Class</a>
+                        <div class="dropdown-menu text-capitalize">
+                            <a href="addclass" class="dropdown-item">Add Class</a>
+                            <a href="adminclassview" class="dropdown-item">View Class</a>
+                            <a href="classbookingsview" class="dropdown-item">Bookings</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Equipments</a>
+                        <div class="dropdown-menu text-capitalize">
+                            <a href="addequip" class="dropdown-item">Add Equipments</a>
+                            <a href="adminviewequip" class="dropdown-item">View Equipments</a>
+                            <a href="admineqbookview" class="dropdown-item">Reserved Equipments</a>
+                        </div>
+                    </div>
+                    <a href="adminfeedbackview" class="nav-item nav-link">Feedback</a>
+                    <a href="logout" class="nav-item nav-link">Logout</a>
+
+                    {% elif request.session.uid %}
+
+                    <a href="userbase" class="nav-item nav-link">Home</a>
+                    <a href="userprofileview" class="nav-item nav-link">My Profile</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Class</a>
+                        <div class="dropdown-menu text-capitalize">
+                            <a href="userclassview" class="dropdown-item">Available classes</a>
+                            <a href="userenrollclass" class="dropdown-item">Book my class</a>
+                            <a href="enrollclassview" class="dropdown-item">View my class</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Equipments</a>
+                        <div class="dropdown-menu text-capitalize">
+                            <a href="userequipview" class="dropdown-item">Available Equipments</a>
+                            <a href="userequipbook" class="dropdown-item">Book my equipment</a>
+                            <a href="usereqbookview" class="dropdown-item">Bookings</a>
+                            
+                        </div>
+                    </div>
+                    <a href="userfeedback" class="nav-item nav-link">Feedback</a>
+                    <a href="logout" class="nav-item nav-link">Logout</a>
+                    {% else %}
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <br><br><br><br>
+
+    {% endblock %}

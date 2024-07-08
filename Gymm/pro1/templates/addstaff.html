@@ -1,0 +1,57 @@
+{% load static %}
+{% include 'header3.html' %}
+{% block content %}
+
+
+<section class="bg-primary py-3 py-md-5 py-xl-8" style="background-image: url(static/img/carousel-01.jpg);">
+    <div class="container mb-5">
+        <br><br>
+      <div class="row gy-4 align-items-center justify-content-center">
+        <div class="col-12 col-md-6 col-xl-5">
+          <div class="card border-0 rounded-4">
+            <div class="card-body p-3 p-md-4 p-xl-5">
+              <div class="row">
+                <div class="col-12">
+                  <div class="mb-4">
+                    <h2>Add Staff</h2><br>
+                  </div>
+                </div>
+              </div>
+              <form method="POST" action="addstaff" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row gy-3 overflow-hidden">
+                  <div class="col-12">
+                    <div class="form-floating mb-3">
+                      <input type="file" class="form-control border-0" placeholder="Your Photo" style="height: 55px;width: 400px;" name="staffphoto" required>
+                    </div>
+                  </div>
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" name="staffname" style="height: 55px;" placeholder="Enter name" required>
+                         
+                        </div>
+                      </div>
+                  <div class="col-12">
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" name="staffspec" style="height: 55px;"  placeholder="Specialisation" required>
+                      
+                    </div>
+                    <br>
+                  </div>
+                  <div class="col-12">
+                    <div class="d-grid">
+                      <button class="btn btn-primary btn-lg" style="background-color: rgb(153, 26, 26); border-radius: 20px; font-weight: 600; width: 160px;" type="submit">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+{% include 'footer.html' %}

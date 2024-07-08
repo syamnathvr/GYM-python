@@ -1,0 +1,62 @@
+{% load static %}
+{% include 'header4.html' %}
+{% block content %}
+
+
+<section class="bg-primary py-3 py-md-5 py-xl-8" style="background-image: url(static/img/carousel-01.jpg);">
+    <div class="container mb-5">
+        <br><br>
+      <div class="row gy-4 align-items-center justify-content-center">
+        <div class="col-12 col-md-6 col-xl-5">
+          <div class="card border-0 rounded-4">
+            <div class="card-body p-3 p-md-4 p-xl-5">
+              <div class="row">
+                <div class="col-12">
+                  <div class="mb-4">
+                    <h2>Update Staff</h2><br>
+                  </div>
+                </div>
+              </div>
+              <form method="POST" action="adminstaffupdate/{{result.id}}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row gy-3 overflow-hidden">
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                    <img src="../media/{{result.staffphoto}}" alt="" style="width: 100px;height: 100px;border-radius: 10px;">
+                    </div>
+                    </div>
+                  <div class="col-12">
+                    <div class="form-floating mb-3">
+                      <input type="file" class="form-control border-0"  style="height: 55px;width: 400px;" name="staffphoto" value="{{result.staffphoto}}">
+                    </div>
+                  </div>
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" name="staffname" style="height: 55px;" value="{{result.staffname}}" >
+                         
+                        </div>
+                      </div>
+                  <div class="col-12">
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" name="staffspec" style="height: 55px;" value="{{result.staffspec}}" >
+                      
+                    </div>
+                    <br>
+                  </div>
+                  <div class="col-12">
+                    <div class="d-grid">
+                      <button class="btn btn-primary btn-lg" style="background-color: rgb(153, 26, 26); border-radius: 5px; width: 120px;" type="submit">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+{% include 'footer.html' %}
